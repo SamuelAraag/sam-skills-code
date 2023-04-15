@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
 nav{
@@ -21,6 +20,7 @@ nav{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  perspective: 10px;
 }
 
 .parallax img{
@@ -33,6 +33,7 @@ nav{
 }
 
 .parallax .fundo-0{
+  transform: translateZ(-10px) scale(2);
   margin-top: -80px;
 }
 
@@ -42,22 +43,51 @@ nav{
 
 .parallax .fundo-2{
   margin-top: 26%;
-  /* top: 69%; */
 }
 .cor-fundo{
   background: rgb(3, 0, 18);
   position: relative;
 }
 
-.pagina{
-  margin-bottom: -14%;
-}
 .sec{
   position: relative;
   padding: 100px;
   padding-top: 0px;
 }
 
+@media screen and (min-width: 1024px) {
+  .parallax{
+    height: 80vh;
+  }
+
+  .sec{
+    padding: 80px;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .parallax{
+    height: 50vh;
+  }
+
+  .sec{
+    padding: 50px;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .parallax{
+    height: 30vh;
+  }
+
+  .sec{
+    padding: 50px;
+    padding-top: 0px;
+  }
+
+}
 
 
 
