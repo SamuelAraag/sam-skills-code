@@ -73,7 +73,7 @@ header {
 .title {
   font-size: 7rem;
   color: white;
-  text-shadow: 0 0 5px black;;
+  text-shadow: 0 0 5px black;
 }
 
 section {
@@ -81,4 +81,126 @@ section {
   padding: 2rem;
   background-color: rgb(3, 0, 18);
   color: white;
+}
+
+.card {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-shadow: 0px 0px 10px #ddd;
+  border-radius: 10px;
+}
+
+.card-header {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+
+
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.header-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.imagem-perfil img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.info-perfil p{
+  margin-bottom: 0px;
+}
+
+.nome {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.data-publicacao {
+  font-size: 12px;
+  color: #999;
+}
+
+.sombra {
+  display: inline-block;
+  overflow: hidden;
+}
+.sombra img {
+  display: block;
+}
+.sombra::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sombra: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+footer {
+  color: #fff;
+  padding: 10px;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+  transform: translateY(-5px);
+}
+
+@media screen and (max-width: 767px){
+  .title{
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .title{
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .title{
+    font-size: 5em;
+  }
 }
