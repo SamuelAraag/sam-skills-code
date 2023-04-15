@@ -17,9 +17,9 @@ nav{
 
 .parallax{
   position: relative;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   height: 100vh;
 }
 
@@ -41,14 +41,21 @@ nav{
 }
 
 .parallax .fundo-2{
-  margin-top: 0%;
-  top: 62%;
+  margin-top: 26%;
+  /* top: 69%; */
+}
+.cor-fundo{
+  background: rgb(3, 0, 18);
+  position: relative;
 }
 
+.pagina{
+  margin-bottom: -14%;
+}
 .sec{
   position: relative;
-  /* background: rgb(3, 0, 18); */
   padding: 100px;
+  padding-top: 0px;
 }
 
 
@@ -223,4 +230,4 @@ header {
     height: 100%;
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
     z-index: 1;
-  } */
+  }
