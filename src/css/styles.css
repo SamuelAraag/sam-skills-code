@@ -221,7 +221,30 @@ footer ul li a:hover {
 
 @media screen and (max-width: 767px){
   .title{
-    font-size: 2em;
+    font-size: 25px;
+  }
+
+  .card{
+    width: 100%;
+  }
+
+  .background{
+    transform: translateZ(-10px) scale(1.5);
+    top: -263px;
+    width: 253%;
+  }
+
+  h1.title{
+    padding-bottom: 336px;
+  }
+
+  .inicio-card{
+    top: -303px;
+    position: relative;
+  }
+
+  .foreground{
+    top: 441px;
   }
 }
 
