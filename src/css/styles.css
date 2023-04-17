@@ -8,14 +8,14 @@ body {
 }
 
 .cabecalho{
-  top: 67px;
+  /* top: 67px; */
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px)
 }
 
 .parallax {
   position: relative;
-  top: -70px;
+  /* top: -70px; */
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
