@@ -74,7 +74,7 @@ section {
 }
 
 .card {
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
   width: 400px;
   background-color: #fff;
   border: 1px solid #ddd;
