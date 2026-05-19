@@ -66,13 +66,6 @@ header {
   text-shadow: 0 0 5px black;
 }
 
-section {
-  font-size: 2rem;
-  padding: 2rem;
-  background-color: rgb(3, 0, 18);
-  color: white;
-}
-
 .card {
   transition: 0.2s ease-in-out;
   width: 400px;
@@ -196,6 +189,134 @@ section {
 footer {
   color: #fff;
   padding: 10px;
+}
+
+/* Seção de apoio (PIX) */
+.apoie {
+  background: rgb(3, 0, 18);
+  color: #fff;
+}
+
+.apoie-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.apoie-title {
+  margin: 0 0 10px 0;
+  font-size: 1.9rem;
+}
+
+.apoie-subtitle {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.apoie-lead {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.apoie-text {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.apoie-note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.apoie-list {
+  margin: 12px 0 0 18px;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+}
+
+.pix-box {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 14px;
+}
+
+.pix-label {
+  display: block;
+  font-size: 0.95rem;
+  margin: 0 0 6px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pix-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.pix-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  outline: none;
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pix-input:focus {
+  border-color: rgba(61, 100, 202, 0.8);
+  box-shadow: 0 0 0 3px rgba(61, 100, 202, 0.25);
+}
+
+.pix-copy {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.pix-status {
+  min-height: 18px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pix-qr {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.pix-qr-img {
+  width: min(260px, 100%);
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.pix-qr-fallback {
+  display: none;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.pix-qr-missing .pix-qr-fallback {
+  display: block;
 }
 
 footer ul {
