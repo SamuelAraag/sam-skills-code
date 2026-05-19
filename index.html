@@ -24,12 +24,16 @@
           <img src="src/assets/logo/logo-letra-fotor-bg-remover-2023041581248.png" alt="Logo" width="30" height="24"
             class="d-inline-block align-text-top">
           Sam Skills Code
-        </a>
-        <div class="d-flex">
-          <a class="bi bi-github fs-2" href="https://github.com/SamuelAraag" target="_blank"></a>
-          </div'>
-        </div>
-    </nav>
+	        </a>
+	        <div class="d-flex">
+            <a class="bi bi-heart-fill fs-2" href="#apoie" aria-label="Apoie o projeto"
+              title="Apoie o projeto"></a>
+	          <a class="bi bi-github fs-2 ms-3" href="https://github.com/SamuelAraag" target="_blank"></a>
+            <a class="bi bi-linkedin fs-2 ms-3" href="https://www.linkedin.com/in/samuelaraag" target="_blank"
+              aria-label="LinkedIn" title="LinkedIn"></a>
+	        </div>
+	        </div>
+	    </nav>
 
     <header>
       <img src="src/assets/parallax/0-fundo-limpo.png" class="background-0">
@@ -256,7 +260,63 @@
     </div>
 
     <div class="align-itens-baseline">
+      <section id="apoie" class="apoie py-5">
+        <div class="container px-4">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-12 col-lg-7">
+              <div class="apoie-card h-100">
+                <h2 class="apoie-title">Apoie este projeto</h2>
+                <p class="apoie-lead">
+                  Este site é gratuito, colaborativo e desenvolvido de forma independente. Nosso objetivo é manter a
+                  plataforma aberta, acessível e em constante evolução.
+                </p>
+                <p class="apoie-text">
+                  Se este conteúdo foi útil para você e desejar contribuir, considere uma doação via PIX (qualquer valor).
+                  A doação é totalmente opcional, mas ajuda diretamente a manter o projeto de pé.
+                </p>
+                <ul class="apoie-list">
+                  <li>Hospedagem e infraestrutura</li>
+                  <li>Desenvolvimento de novas funcionalidades</li>
+                  <li>Correções e manutenção da plataforma</li>
+                  <li>Continuidade do projeto</li>
+                </ul>
 
+                <div class="pix-box mt-4">
+                  <label class="pix-label" for="pixKey">Chave PIX</label>
+                  <div class="pix-row">
+                    <input id="pixKey" class="pix-input" type="text"
+                      value="00020126330014BR.GOV.BCB.PIX0111067718985045204000053039865802BR5922Samuel Santos de Jesus6009SAO PAULO62140510LwrWE39LVa63043ABC"
+                      readonly>
+                    <button id="copyPixBtn" class="pix-copy btn btn-sm btn-primary" type="button"
+                      aria-label="Copiar chave PIX" title="Copiar chave PIX">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </div>
+                  <div id="pixCopyStatus" class="pix-status" aria-live="polite"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+              <div class="apoie-card h-100">
+                <h3 class="apoie-subtitle">QR Code</h3>
+                <p class="apoie-text mb-3">Use o QR Code abaixo para contribuir de forma r&aacute;pida e segura.</p>
+                <div class="pix-qr">
+                  <img class="pix-qr-img" src="src/assets/qr-code-deposito-samuel-santos.png"
+                    alt="QR Code para doacao via PIX"
+                    onerror="this.style.display='none'; this.parentElement.classList.add('pix-qr-missing');">
+                  <div class="pix-qr-fallback">
+                    Adicione a imagem do seu QR Code em <code>src/assets/qr-code-deposito-samuel-santos.png</code>.
+                  </div>
+                </div>
+                <p class="apoie-note mt-3">
+                  Obrigado por apoiar e fazer parte desta comunidade.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <footer class="mt-5">
       <ul class="list-inline">
@@ -275,6 +335,41 @@
       </ul>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      const input = document.getElementById('pixKey');
+      const btn = document.getElementById('copyPixBtn');
+      const status = document.getElementById('pixCopyStatus');
+      if (!input || !btn || !status) return;
+
+      function setStatus(text) {
+        status.textContent = text;
+      }
+
+      async function copyPix() {
+        const value = String(input.value || '');
+        if (!value) return;
+        try {
+          await navigator.clipboard.writeText(value);
+          setStatus('Chave PIX copiada.');
+        } catch (e) {
+          // Fallback: seleciona e tenta copiar via execCommand (compatibilidade)
+          input.focus();
+          input.select();
+          try {
+            const ok = document.execCommand('copy');
+            setStatus(ok ? 'Chave PIX copiada.' : 'Nao foi possivel copiar automaticamente.');
+          } catch (_) {
+            setStatus('Nao foi possivel copiar automaticamente.');
+          }
+        }
+        window.setTimeout(() => setStatus(''), 2500);
+      }
+
+      btn.addEventListener('click', copyPix);
+    })();
+  </script>
 </body>
 
 </html>
