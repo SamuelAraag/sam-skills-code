@@ -42,6 +42,17 @@
       <h1 class="title">Base de Conhecimento</h1>
     </header>
 
+    <button id="indicadorScroll" class="indicador-scroll" type="button"
+      aria-label="Rolar para os conte&uacute;dos">
+      <span class="indicador-scroll-texto">Role para ver os conte&uacute;dos</span>
+      <span class="indicador-scroll-circulo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 10 12 16 18 10"></polyline>
+        </svg>
+      </span>
+    </button>
+
     <div class="busca-area inicio-card">
       <label class="busca-label-oculto" for="campoBusca">Buscar conte&uacute;do</label>
       <div class="busca-campo">
@@ -453,6 +464,7 @@
     })();
   </script>
   <script src="src/js/busca.js"></script>
+  <script src="src/js/indicador-scroll.js"></script>
 </body>
 
 </html>
