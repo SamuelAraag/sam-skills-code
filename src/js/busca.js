@@ -233,12 +233,16 @@
     });
   });
 
+  // Esc sai da busca: limpa o que foi digitado e tira o foco do campo.
+  // Para voltar, Ctrl+K (Cmd+K no Mac) ou "/".
   input.addEventListener('keydown', function (evento) {
-    if (evento.key === 'Escape' && input.value) {
-      evento.preventDefault();
+    if (evento.key !== 'Escape') return;
+    evento.preventDefault();
+    if (input.value) {
       input.value = '';
       buscar();
     }
+    input.blur();
   });
 
   if (btnLimpar) {
