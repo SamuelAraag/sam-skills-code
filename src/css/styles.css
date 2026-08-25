@@ -100,6 +100,27 @@ header {
   padding: 20px;
 }
 
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(61, 100, 202, 0.10);
+  border: 1px solid rgba(61, 100, 202, 0.22);
+  color: #3d64ca;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
 .card-footer {
   display: flex;
   align-items: center;
@@ -189,6 +210,181 @@ header {
 footer {
   color: #fff;
   padding: 10px;
+}
+
+/* Busca dos cards */
+.busca-area {
+  width: min(680px, calc(100% - 96px));
+  margin: 56px auto 0 auto;
+}
+
+.busca-label-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.busca-campo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 58px;
+  padding: 0 12px 0 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 6, 34, 0.55);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.busca-campo:hover {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.busca-campo:focus-within {
+  border-color: rgba(61, 100, 202, 0.9);
+  background: rgba(10, 6, 34, 0.72);
+  box-shadow: 0 0 0 4px rgba(61, 100, 202, 0.22), 0 14px 34px rgba(0, 0, 0, 0.38);
+}
+
+.busca-icone {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s ease-in-out;
+}
+
+.busca-campo:focus-within .busca-icone {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.busca-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 1.05rem;
+  outline: none;
+}
+
+.busca-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.busca-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.busca-atalho {
+  flex: none;
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.65);
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.busca-limpar {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.busca-limpar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.busca-limpar:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.busca-status {
+  min-height: 20px;
+  margin: 12px 0 0 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.card-tag .busca-destaque {
+  background: rgba(61, 100, 202, 0.3);
+}
+
+.busca-destaque {
+  padding: 0 2px;
+  background: rgba(61, 100, 202, 0.2);
+  color: inherit;
+  border-radius: 4px;
+}
+
+.busca-vazio {
+  width: 100%;
+  padding: 24px 20px 8px 20px;
+  text-align: center;
+}
+
+.busca-vazio-titulo {
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.busca-vazio-texto {
+  margin: 0 0 14px 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.busca-sugestoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.busca-sugestao {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.busca-sugestao:hover {
+  background: rgba(61, 100, 202, 0.28);
+  border-color: rgba(61, 100, 202, 0.8);
+  transform: translateY(-2px);
 }
 
 /* Seção de apoio (PIX) */
@@ -343,7 +539,30 @@ footer ul li a:hover {
   color: #3d64ca;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 @media screen and (max-width: 767px) {
+  .busca-area {
+    width: calc(100% - 32px);
+    margin-top: 32px;
+  }
+
+  .busca-campo {
+    height: 52px;
+    padding: 0 10px 0 16px;
+    gap: 10px;
+  }
+
+  .busca-input {
+    font-size: 1rem;
+  }
+
+  .busca-atalho {
+    display: none;
+  }
+
   .title {
     font-size: 25px;
   }

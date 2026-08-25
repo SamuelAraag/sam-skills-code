@@ -42,8 +42,31 @@
       <h1 class="title">Base de Conhecimento</h1>
     </header>
 
-    <div class="row justify-content-evenly gap-5 inicio-card m-5">
-      <div class="col-auto">
+    <div class="busca-area inicio-card">
+      <label class="busca-label-oculto" for="campoBusca">Buscar conte&uacute;do</label>
+      <div class="busca-campo">
+        <svg class="busca-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+        </svg>
+        <input id="campoBusca" class="busca-input" type="search" autocomplete="off" spellcheck="false"
+          placeholder="Buscar por tema, t&iacute;tulo ou palavra-chave" aria-describedby="buscaStatus">
+        <kbd id="buscaAtalho" class="busca-atalho" aria-hidden="true">Ctrl K</kbd>
+        <button id="limparBusca" class="busca-limpar" type="button" hidden aria-label="Limpar busca"
+          title="Limpar busca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <p id="buscaStatus" class="busca-status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div id="listaCards" class="row justify-content-evenly gap-5 inicio-card m-5">
+      <div class="col-auto" data-busca="csharp c sharp dotnet net nomenclatura nomenclaturas naming convention padroes de escrita codigo classes metodos variaveis">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/Nomenclatura-em-C-pt-br-039624270fdb44a190421256df574d02"
           target="_blank">
@@ -58,6 +81,13 @@
             <div class="card-body">
               <h3>Nomenclaturas C# (pt-br)</h3>
               <p>Padrões de escrita e formatos em projetos c#</p>
+              <ul class="card-tags">
+                <li class="card-tag">#csharp</li>
+                <li class="card-tag">#dotnet</li>
+                <li class="card-tag">#clean code</li>
+                <li class="card-tag">#boas pr&aacute;ticas</li>
+                <li class="card-tag">#padr&otilde;es de c&oacute;digo</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -74,7 +104,7 @@
         </a>
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto" data-busca="git comandos terminal cli branch merge rebase commit clone pull push versionamento">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/Comandos-Git-mais-usados-72843040f43e495a90d26662cf1c4cdb"
           target="_blank">
@@ -89,6 +119,13 @@
             <div class="card-body">
               <h3>Comandos git</h3>
               <p>Aqui tem os comandos mais utilizados no git</p>
+              <ul class="card-tags">
+                <li class="card-tag">#git</li>
+                <li class="card-tag">#versionamento</li>
+                <li class="card-tag">#terminal</li>
+                <li class="card-tag">#produtividade</li>
+                <li class="card-tag">#branch</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -105,7 +142,7 @@
         </a>
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto" data-busca="email e-mail smtp csharp c sharp dotnet net mailmessage envio mensagem">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/Envio-de-email-usando-C-sharp-823f0ce573474e67a6c14534c7e7eff6"
           target="_blank">
@@ -120,6 +157,13 @@
             <div class="card-body">
               <h3>Envio de E-mail usando C#</h3>
               <p>Aprenda como fazer de forma nativa com .Net</p>
+              <ul class="card-tags">
+                <li class="card-tag">#csharp</li>
+                <li class="card-tag">#dotnet</li>
+                <li class="card-tag">#e-mail</li>
+                <li class="card-tag">#smtp</li>
+                <li class="card-tag">#backend</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -136,7 +180,7 @@
         </a>
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto" data-busca="gitlab commit commits padrao padroes mensagem versionamento merge request">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/GitLab-Padr-es-Commits-2f6f4531046a80d5935afa8d1724f768"
           target="_blank">
@@ -151,6 +195,13 @@
             <div class="card-body">
               <h3>GitLab - Padrão de commits</h3>
               <p>Aprenda os padrões corretos para escrever commits no GitLab</p>
+              <ul class="card-tags">
+                <li class="card-tag">#gitlab</li>
+                <li class="card-tag">#git</li>
+                <li class="card-tag">#commits</li>
+                <li class="card-tag">#versionamento</li>
+                <li class="card-tag">#padr&otilde;es</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -167,7 +218,7 @@
         </a>
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto" data-busca="bitbucket git commit commits padrao padroes mensagem versionamento pull request">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/Bitbucket-Padr-o-de-commits-113f4531046a80f4adbdd28e9503c31a?pvs=73"
           target="_blank">
@@ -182,6 +233,13 @@
             <div class="card-body">
               <h3>Bitbucket - Padrão de commits</h3>
               <p>Aprenda os padrões corretos para escrever commits no Bitbucket</p>
+              <ul class="card-tags">
+                <li class="card-tag">#bitbucket</li>
+                <li class="card-tag">#git</li>
+                <li class="card-tag">#commits</li>
+                <li class="card-tag">#versionamento</li>
+                <li class="card-tag">#padr&otilde;es</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -198,7 +256,7 @@
         </a>
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto" data-busca="git commit commits boas praticas versionamento conventional commits semantico mensagem historico">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/Guia-de-Boas-Pr-ticas-de-Commit-e-Versionamento-2f8f4531046a8058a689cbc69501cf52?pvs=73"
           target="_blank">
@@ -213,6 +271,13 @@
             <div class="card-body">
               <h3>Commits - Guia de Boas Práticas</h3>
               <p>Aprenda a fazer bons commits e seguir o padrão utilizado por grandes empresas</p>
+              <ul class="card-tags">
+                <li class="card-tag">#git</li>
+                <li class="card-tag">#commits</li>
+                <li class="card-tag">#conventional commits</li>
+                <li class="card-tag">#boas pr&aacute;ticas</li>
+                <li class="card-tag">#versionamento</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -228,7 +293,7 @@
           </div>
         </a>
       </div>
-      <div class="col-auto">
+      <div class="col-auto" data-busca="solid clean code principios oop orientacao a objetos design de software srp ocp lsp isp dip arquitetura">
         <a class="text-decoration-none text-black"
           href="https://samuelaraag.notion.site/S-O-L-I-D-01ee5eded3414682b96cbbbe6d15c0ac" target="_blank">
           <div class="card">
@@ -242,6 +307,13 @@
             <div class="card-body">
               <h3>S.O.L.I.D</h3>
               <p>Aprenda os 5 princípios do design de software orientado a objetos</p>
+              <ul class="card-tags">
+                <li class="card-tag">#solid</li>
+                <li class="card-tag">#padr&atilde;o de projeto</li>
+                <li class="card-tag">#boas pr&aacute;ticas de c&oacute;digo</li>
+                <li class="card-tag">#orienta&ccedil;&atilde;o a objetos</li>
+                <li class="card-tag">#arquitetura</li>
+              </ul>
             </div>
             <div class="card-footer">
               <div class="imagem-perfil">
@@ -256,6 +328,16 @@
             </div>
           </div>
         </a>
+      </div>
+      <div id="buscaVazio" class="busca-vazio" role="status" aria-live="polite" hidden>
+        <p class="busca-vazio-titulo" id="buscaVazioTitulo">Nenhum conte&uacute;do encontrado</p>
+        <p class="busca-vazio-texto">Tente outro termo ou comece por um destes:</p>
+        <div class="busca-sugestoes">
+          <button class="busca-sugestao" type="button" data-termo="git">git</button>
+          <button class="busca-sugestao" type="button" data-termo="commit">commit</button>
+          <button class="busca-sugestao" type="button" data-termo="c#">c#</button>
+          <button class="busca-sugestao" type="button" data-termo="solid">solid</button>
+        </div>
       </div>
     </div>
 
@@ -370,6 +452,7 @@
       btn.addEventListener('click', copyPix);
     })();
   </script>
+  <script src="src/js/busca.js"></script>
 </body>
 
 </html>
