@@ -249,10 +249,14 @@
     });
   }
 
+  // Rolagem suave e movimento: respeita quem pediu menos animacao.
+  const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function comportamentoRolagem() { return semMovimento.matches ? 'auto' : 'smooth'; }
+
   function focarBusca() {
     input.focus();
     input.select();
-    input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    input.scrollIntoView({ block: 'center', behavior: comportamentoRolagem() });
   }
 
   // Ctrl+K (Cmd+K no Mac) e "/" focam a busca, como em sites de documentacao.

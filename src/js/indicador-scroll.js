@@ -13,6 +13,9 @@
   const ESPERA_ATE_APARECER = 4000;
   const ROLAGEM_MINIMA = 40;
   let temporizador = null;
+  // Rolagem suave e movimento: respeita quem pediu menos animacao.
+  const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function comportamentoRolagem() { return semMovimento.matches ? 'auto' : 'smooth'; }
 
   function esconder() {
     indicador.classList.remove('visivel');
@@ -33,7 +36,7 @@
     esconder();
     if (!destino) return;
     const topo = container.scrollTop + destino.getBoundingClientRect().top - 24;
-    container.scrollTo({ top: topo, behavior: 'smooth' });
+    container.scrollTo({ top: topo, behavior: comportamentoRolagem() });
   });
 
   container.addEventListener('scroll', aoRolar, { passive: true });

@@ -2,6 +2,19 @@ body {
   margin: 0;
 }
 
+/* Foco visivel em qualquer elemento interativo. #3d64ca passa em contraste
+   tanto sobre o fundo escuro (3.8:1) quanto sobre o card branco (5.4:1). */
+:focus-visible {
+  outline: 2px solid #3d64ca;
+  outline-offset: 3px;
+}
+
+/* Estes dois ja tem anel proprio de foco; evita anel duplicado. */
+.busca-input:focus-visible,
+.pix-input:focus-visible {
+  outline: none;
+}
+
 .cor-fundo {
   position: relative;
   background: rgb(3, 0, 18);
@@ -79,6 +92,31 @@ header {
   transform: scale(1.06);
 }
 
+/* Altura igual entre os cards da mesma linha.
+   O .col-auto ja estica sozinho (align-items do .row), faltava a corrente ate
+   o .card acompanhar. Os seletores comecam por #listaCards porque o
+   bootstrap.min.css e carregado depois deste arquivo e venceria por ordem. */
+#listaCards .col-auto {
+  display: flex;
+}
+
+#listaCards .col-auto > a {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+/* Faz o corpo absorver a sobra para o rodape (autor e data) encostar na base
+   de todos os cards, em vez de flutuar logo abaixo das tags. */
+#listaCards .card-body {
+  flex: 1 1 auto;
+}
+
+/* .card antes de .card-header: o bootstrap.min.css e carregado depois deste
+   arquivo, entao a especificidade menor perderia para --bs-card-cap-bg. */
+.card .card-header {
+  background-color: #ddd;
+}
+
 .card-header {
   height: 150px;
   position: relative;
@@ -145,7 +183,7 @@ header {
 
 .data-publicacao {
   font-size: 12px;
-  color: #999;
+  color: #6b6b6b;
 }
 
 .sombra {
@@ -284,14 +322,6 @@ footer {
 @keyframes piscar-indicador {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.35; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .indicador-scroll-texto,
-  .indicador-scroll-circulo {
-    animation: none;
-  }
 }
 
 /* Busca dos cards */
@@ -691,5 +721,48 @@ footer ul li a:hover {
 @media screen and (min-width: 1024px) {
   .title {
     font-size: 5em;
+  }
+}
+
+/* Movimento reduzido.
+   Precisa ficar no fim do arquivo: os media queries acima reposicionam as
+   camadas do parallax e venceriam este bloco se ele viesse antes. */
+@media (prefers-reduced-motion: reduce) {
+
+  .indicador-scroll-texto,
+  .indicador-scroll-circulo {
+    animation: none;
+  }
+
+  /* Desliga o parallax mantendo a composicao: as tres imagens tem a mesma
+     largura (3355px) e alturas diferentes, entao sao fatias ancoradas no rodape
+     da mesma cena. Empilhadas por bottom, na altura natural, elas remontam a
+     ilustracao sem movimento. */
+  .parallax {
+    perspective: none;
+  }
+
+  .background-0,
+  .background,
+  .foreground {
+    transform: none;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+  }
+
+  /* A camada do ceu preenche o header inteiro para nao sobrar faixa vazia. */
+  .background-0 {
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .card:hover,
+  .busca-sugestao:hover,
+  footer ul li a:hover {
+    transform: none;
   }
 }
