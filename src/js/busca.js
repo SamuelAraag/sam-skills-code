@@ -22,6 +22,10 @@
   const ehMac = /mac|iphone|ipad|ipod/i.test(navigator.platform || navigator.userAgent);
   if (atalho) atalho.textContent = ehMac ? '\u2318 K' : 'Ctrl K';
 
+  // Rolagem suave so quando o usuario nao pediu menos movimento, igual as
+  // animacoes no CSS.
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
   function normalizar(texto) {
     return String(texto || '')
       .toLowerCase()
@@ -252,7 +256,7 @@
   function focarBusca() {
     input.focus();
     input.select();
-    input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    input.scrollIntoView({ block: 'center', behavior: reduzMovimento.matches ? 'auto' : 'smooth' });
   }
 
   // Ctrl+K (Cmd+K no Mac) e "/" focam a busca, como em sites de documentacao.

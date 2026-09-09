@@ -29,11 +29,15 @@
     indicador.classList.add('visivel');
   }
 
+  // Rolagem suave so quando o usuario nao pediu menos movimento, igual as
+  // animacoes no CSS.
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
   indicador.addEventListener('click', function () {
     esconder();
     if (!destino) return;
     const topo = container.scrollTop + destino.getBoundingClientRect().top - 24;
-    container.scrollTo({ top: topo, behavior: 'smooth' });
+    container.scrollTo({ top: topo, behavior: reduzMovimento.matches ? 'auto' : 'smooth' });
   });
 
   container.addEventListener('scroll', aoRolar, { passive: true });
