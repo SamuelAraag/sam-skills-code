@@ -1,14 +1,3 @@
-/**
- * Busca inteligente dos cards da base de conhecimento.
- *
- * A busca casa por:
- *  - trecho do texto (substring), ignorando acentos e maiusculas;
- *  - inicio de palavra (recebe mais relevancia);
- *  - erro de digitacao (distancia de edicao de ate 2 caracteres);
- *  - caracteres soltos na ordem digitada (ex.: "cmt" encontra "commits").
- *
- * Varios termos separados por espaco funcionam como "E" (todos precisam casar).
- */
 (function () {
   const input = document.getElementById('campoBusca');
   const lista = document.getElementById('listaCards');
@@ -36,7 +25,6 @@
     const tags = Array.from(coluna.querySelectorAll('.card-tag'));
     const extra = coluna.getAttribute('data-busca') || '';
 
-    // Nos cujo texto recebe destaque quando casa com a busca.
     const destacaveis = [titulo, descricao].concat(tags).filter(Boolean).map(function (no) {
       const texto = no.textContent.trim();
       return { no: no, texto: texto, alvo: normalizar(texto) };
@@ -57,7 +45,6 @@
 
   const totalItens = itens.length;
 
-  /** Distancia de edicao com corte: para assim que passa do limite. */
   function distanciaEdicao(a, b, limite) {
     if (Math.abs(a.length - b.length) > limite) return limite + 1;
     let anterior = Array.from({ length: b.length + 1 }, (_, i) => i);
@@ -79,9 +66,7 @@
     return texto.split(/[^a-z0-9#+.]+/).filter(Boolean);
   }
 
-  /** Aceita erro de digitacao no inicio de alguma palavra do texto. */
   function casaComErroDeDigitacao(texto, termo) {
-    // Numeros nao ganham tolerancia: 2023 e 2026 sao coisas diferentes.
     if (termo.length < 4 || /^[0-9]+$/.test(termo)) return false;
     const limite = termo.length >= 7 ? 2 : 1;
     for (const palavra of separarPalavras(texto)) {
@@ -91,7 +76,6 @@
     return false;
   }
 
-  /** Caracteres na ordem digitada dentro de uma mesma palavra (ex.: "cmt" -> "commits"). */
   function casaComoSequencia(texto, termo) {
     if (termo.length < 2) return false;
     for (const palavra of separarPalavras(texto)) {
@@ -115,7 +99,6 @@
     if (indice === 0) return 100;
     if (indice > 0) {
       const meioDePalavra = /[a-z0-9]/.test(texto[indice - 1]);
-      // Um unico caractere so vale quando inicia uma palavra, senao casaria com tudo.
       if (meioDePalavra) return termo.length === 1 ? 0 : 60;
       return 80;
     }
@@ -144,7 +127,6 @@
     });
   }
 
-  /** Envolve em <mark> os trechos digitados, preservando o texto original. */
   function destacar(texto, alvo, termos) {
     if (!termos.length || alvo.length !== texto.length) return escaparHtml(texto);
 
@@ -179,7 +161,6 @@
       return;
     }
     if (quantidade === 0) {
-      // A mensagem fica no estado vazio, que tambem e uma regiao viva; evita texto duplicado.
       status.textContent = '';
       if (vazioTitulo) vazioTitulo.textContent = 'Nenhum conteúdo encontrado para "' + consulta + '"';
       return;
@@ -233,8 +214,6 @@
     });
   });
 
-  // Esc sai da busca: limpa o que foi digitado e tira o foco do campo.
-  // Para voltar, Ctrl+K (Cmd+K no Mac) ou "/".
   input.addEventListener('keydown', function (evento) {
     if (evento.key !== 'Escape') return;
     evento.preventDefault();
@@ -259,7 +238,6 @@
     input.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
-  // Ctrl+K (Cmd+K no Mac) e "/" focam a busca, como em sites de documentacao.
   document.addEventListener('keydown', function (evento) {
     const teclaK = evento.key === 'k' || evento.key === 'K';
     if (teclaK && (evento.metaKey || evento.ctrlKey) && !evento.altKey) {

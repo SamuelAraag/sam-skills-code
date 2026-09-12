@@ -1,9 +1,3 @@
-/**
- * Indicador de rolagem do topo.
- *
- * Aparece alguns segundos depois do carregamento, sinalizando que o conteudo
- * continua abaixo, e some assim que a pessoa rola a pagina.
- */
 (function () {
   const indicador = document.getElementById('indicadorScroll');
   const container = document.querySelector('.parallax');

@@ -212,7 +212,6 @@ footer {
   padding: 10px;
 }
 
-/* Indicador de rolagem do topo */
 .indicador-scroll {
   position: absolute;
   top: calc(100vh - 104px);
@@ -294,7 +293,6 @@ footer {
   }
 }
 
-/* Busca dos cards */
 .busca-area {
   width: min(680px, calc(100% - 96px));
   margin: 56px auto 0 auto;
@@ -469,7 +467,6 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Seção de apoio (PIX) */
 .apoie {
   background: rgb(3, 0, 18);
   color: #fff;
