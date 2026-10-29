@@ -4,7 +4,7 @@
   const destino = document.querySelector('.busca-area') || document.getElementById('listaCards');
   if (!indicador || !container) return;
 
-  const ESPERA_ATE_APARECER = 4000;
+  const ESPERA_ATE_APARECER = 3000;
   const ROLAGEM_MINIMA = 40;
   let temporizador = null;
 
