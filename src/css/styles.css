@@ -291,6 +291,10 @@ footer {
   .indicador-scroll-circulo {
     animation: none;
   }
+
+  .cabecalho .botao-portfolio {
+    transition: none;
+  }
 }
 
 .busca-area {
@@ -650,45 +654,24 @@ footer ul li a:hover {
 
 .rodape-portfolio a {
   color: #fff;
-  transition: color 0.3s ease-in-out;
 }
 
 .rodape-portfolio a:hover {
-  color: #3d64ca;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .botao-portfolio,
-  .rodape-portfolio a {
-    transition: none;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .github-topo {
-    display: none;
-  }
-
+@media screen and (max-width: 575.98px) {
   .cabecalho .navbar-brand {
     margin-right: 0;
     font-size: 1.05rem;
   }
 
-  .cabecalho .bi {
+  .cabecalho .fs-2 {
     font-size: 1.5rem !important;
-  }
-
-  .cabecalho .bi-linkedin {
-    margin-left: 12px !important;
-  }
-
-  .botao-portfolio .bi {
-    display: none;
   }
 
   .botao-portfolio {
     min-height: 36px;
-    margin-right: 12px !important;
     padding: 0 12px;
     font-size: 0.9rem;
   }
