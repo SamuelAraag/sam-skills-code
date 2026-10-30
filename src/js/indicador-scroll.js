@@ -26,8 +26,7 @@
   indicador.addEventListener('click', function () {
     esconder();
     if (!destino) return;
-    const topo = container.scrollTop + destino.getBoundingClientRect().top - 24;
-    container.scrollTo({ top: topo, behavior: 'smooth' });
+    destino.scrollIntoView({ block: 'start', behavior: 'smooth' });
   });
 
   container.addEventListener('scroll', aoRolar, { passive: true });

@@ -10,6 +10,8 @@
 
   const ehMac = /mac|iphone|ipad|ipod/i.test(navigator.platform || navigator.userAgent);
   if (atalho) atalho.textContent = ehMac ? '\u2318 K' : 'Ctrl K';
+  const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const ESPERA_TECLADO_VIRTUAL = 350;
 
   function normalizar(texto) {
     return String(texto || '')
@@ -203,8 +205,21 @@
   }
 
   input.addEventListener('input', buscar);
+  function alinharBusca() {
+    const area = input.closest('.busca-area') || input;
+    const margem = parseFloat(window.getComputedStyle(area).scrollMarginTop) || 0;
+    if (Math.abs(area.getBoundingClientRect().top - margem) < 4) return;
+    area.scrollIntoView({ block: 'start', behavior: movimentoReduzido.matches ? 'auto' : 'smooth' });
+  }
+
   input.addEventListener('focus', function () { if (atalho) atalho.hidden = true; });
   input.addEventListener('blur', function () { if (atalho) atalho.hidden = input.value.length > 0; });
+
+  let toque = false;
+  input.addEventListener('pointerdown', function (evento) { toque = evento.pointerType !== 'mouse'; });
+  input.addEventListener('click', function () {
+    window.setTimeout(alinharBusca, toque ? ESPERA_TECLADO_VIRTUAL : 0);
+  });
 
   Array.prototype.forEach.call(document.querySelectorAll('.busca-sugestao'), function (chip) {
     chip.addEventListener('click', function () {
@@ -233,9 +248,9 @@
   }
 
   function focarBusca() {
-    input.focus();
+    input.focus({ preventScroll: true });
     input.select();
-    input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    alinharBusca();
   }
 
   document.addEventListener('keydown', function (evento) {
