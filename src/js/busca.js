@@ -203,7 +203,17 @@
   }
 
   input.addEventListener('input', buscar);
-  input.addEventListener('focus', function () { if (atalho) atalho.hidden = true; });
+  function alinharBusca() {
+    const area = input.closest('.busca-area') || input;
+    if (Math.abs(area.getBoundingClientRect().top - 16) < 8) return;
+    const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    area.scrollIntoView({ block: 'start', behavior: reduzir ? 'auto' : 'smooth' });
+  }
+
+  input.addEventListener('focus', function () {
+    if (atalho) atalho.hidden = true;
+    alinharBusca();
+  });
   input.addEventListener('blur', function () { if (atalho) atalho.hidden = input.value.length > 0; });
 
   Array.prototype.forEach.call(document.querySelectorAll('.busca-sugestao'), function (chip) {
@@ -233,9 +243,8 @@
   }
 
   function focarBusca() {
-    input.focus();
+    input.focus({ preventScroll: true });
     input.select();
-    input.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
   document.addEventListener('keydown', function (evento) {

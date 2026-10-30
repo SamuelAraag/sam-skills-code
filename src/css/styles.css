@@ -300,6 +300,7 @@ footer {
 .busca-area {
   width: min(680px, calc(100% - 96px));
   margin: 56px auto 0 auto;
+  scroll-margin-top: 16px;
 }
 
 .busca-label-oculto {
