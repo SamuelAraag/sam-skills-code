@@ -291,6 +291,10 @@ footer {
   .indicador-scroll-circulo {
     animation: none;
   }
+
+  .cabecalho .botao-portfolio {
+    transition: none;
+  }
 }
 
 .busca-area {
@@ -620,6 +624,57 @@ footer ul li a:hover {
 
 [hidden] {
   display: none !important;
+}
+
+.botao-portfolio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.botao-portfolio:hover {
+  border-color: #3d64ca;
+  color: #3d64ca;
+}
+
+.rodape-portfolio {
+  margin: 12px 0 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.rodape-portfolio a {
+  color: #fff;
+}
+
+.rodape-portfolio a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 575.98px) {
+  .cabecalho .navbar-brand {
+    margin-right: 0;
+    font-size: 1.05rem;
+  }
+
+  .cabecalho .fs-2 {
+    font-size: 1.5rem !important;
+  }
+
+  .botao-portfolio {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
