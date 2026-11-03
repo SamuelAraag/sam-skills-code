@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="brilho" cx="50%" cy="50%" r="50%">
+      <stop offset="42%" stop-color="#b9c6ff" stop-opacity="0.5"/>
+      <stop offset="62%" stop-color="#6f7dff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#3d4fd8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="disco" cx="38%" cy="34%" r="78%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#e4e6ff"/>
+      <stop offset="100%" stop-color="#a9b4f5"/>
+    </radialGradient>
+    <clipPath id="borda"><circle cx="200" cy="200" r="92"/></clipPath>
+  </defs>
+  <circle cx="200" cy="200" r="200" fill="url(#brilho)"/>
+  <circle cx="200" cy="200" r="92" fill="url(#disco)"/>
+  <g clip-path="url(#borda)">
+    <path d="M292 200a92 92 0 0 1-142 77 104 104 0 0 0 120-133 92 92 0 0 1 22 56z" fill="#7a6fe0" opacity="0.38"/>
+    <g fill="#c3c8fb">
+      <circle cx="166" cy="170" r="21"/>
+      <circle cx="232" cy="150" r="12"/>
+      <circle cx="222" cy="226" r="26"/>
+      <circle cx="150" cy="238" r="13"/>
+      <circle cx="186" cy="124" r="8"/>
+      <circle cx="262" cy="196" r="9"/>
+    </g>
+    <g fill="#9ea6ef">
+      <path d="M149 158a21 21 0 0 1 34 0 24 24 0 0 0-34 0z"/>
+      <path d="M201 210a26 26 0 0 1 42 0 30 30 0 0 0-42 0z"/>
+      <path d="M223 142a12 12 0 0 1 18 0 14 14 0 0 0-18 0z"/>
+      <path d="M140 230a13 13 0 0 1 20 0 15 15 0 0 0-20 0z"/>
+    </g>
+  </g>
+</svg>

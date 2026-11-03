@@ -40,6 +40,40 @@ header {
   z-index: -1;
 }
 
+.lua {
+  --tamanho-lua: clamp(150px, 19vw, 300px);
+  position: absolute;
+  top: calc(-20vh - var(--tamanho-lua) / 2);
+  left: calc(50% - var(--tamanho-lua) / 2);
+  width: var(--tamanho-lua);
+  height: var(--tamanho-lua);
+  transform: translateZ(-15px) scale(2.5);
+  z-index: -1;
+  animation: lua-entrar 1.6s ease-out both;
+}
+
+@media (max-width: 991px) {
+  .lua {
+    --tamanho-lua: clamp(120px, 26vw, 200px);
+    top: calc(-32vh - var(--tamanho-lua) / 2);
+  }
+}
+
+@keyframes lua-entrar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lua {
+    animation: none;
+  }
+}
+
 .background {
   transform: translateZ(-10px) scale(2);
   top: -100px;
